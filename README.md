@@ -1,593 +1,505 @@
-
-
-# ---------- README ----------
-readme = r'''<div align="center">
-
-<img src="assets/paulo-linux-soc-banner.svg" alt="Paulo Henrique Santana Motta - Linux SOC Cybersecurity Automation" width="100%">
-
-<br>
-
-<img src="assets/paulo-linux-soc-banner.gif" alt="Animated Linux SOC Cybersecurity Automation banner" width="100%">
-
-</div>
-
-# ⚡ Paulo Henrique Santana Motta
-
-**Administrador Linux | Analista de Sistemas | SOC Analyst | Cybersecurity | Automação**
-
-Este repositório reúne um laboratório prático voltado para **Linux, administração de sistemas, redes, monitoramento, segurança e automação**.
-
----
-
-## 🧠 Arquitetura do laboratório
-
-```text
-                         ┌─────────────────────────┐
-                         │       SYSTEM CORE        │
-                         │                           │
-                         │   LINUX • SOC • CYBER    │
-                         │       AUTOMATION         │
-                         └────────────┬──────────────┘
-                                      │
-              ┌───────────────────────┼───────────────────────┐
-              │                       │                       │
-              ▼                       ▼                       ▼
-       ┌──────────────┐       ┌──────────────┐       ┌──────────────┐
-       │ LINUX SYSTEM │       │ SOC / SECURITY│       │  AUTOMATION  │
-       │              │       │              │       │              │
-       │ processes    │       │ logs         │       │ Bash         │
-       │ systemd      │       │ events       │       │ Python       │
-       │ filesystem   │       │ monitoring   │       │ scripts      │
-       │ networking   │       │ detection    │       │ tooling      │
-       └──────────────┘       └──────────────┘       └──────────────┘
-
-
-
+# 🔐 LINUX SECURITY SCANNER
 
 <div align="center">
 
-# 🟦⚡ PAULO HENRIQUE SANTANA MOTTA ⚡🟦
+## 🟦 `SECURITY ANALYSIS` • 🟨 `AUTOMATION` • 🟥 `LINUX` • 🟩 `PYTHON`
 
-### `Administrador Linux`  |  `Analista de Sistemas`  |  `SOC Analyst`
+### **Paulo Henrique Santana Motta**
 
-### `Cybersecurity`  |  `Automação`  |  `Linux Engineering`
+**Linux • Python • Cybersecurity • Security Automation**
 
-<br>
+---
 
 ```text
 ╔══════════════════════════════════════════════════════════════════════╗
+║                  LINUX SECURITY SCANNER                             ║
+║              SECURITY ANALYSIS & AUTOMATION                         ║
+╠══════════════════════════════════════════════════════════════════════╣
 ║                                                                      ║
-║        ██████╗  █████╗ ██╗   ██╗██╗      ██████╗                  ║
-║        ██╔══██╗██╔══██╗██║   ██║██║     ██╔═══██╗                 ║
-║        ██████╔╝███████║██║   ██║██║     ██║   ██║                 ║
-║        ██╔═══╝ ██╔══██║██║   ██║██║     ██║   ██║                 ║
-║        ██║     ██║  ██║╚██████╔╝███████╗╚██████╔╝                 ║
-║        ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚══════╝ ╚═════╝                  ║
+║   🐍 PYTHON        🐧 LINUX        🌐 NETWORK        🔐 SECURITY     ║
 ║                                                                      ║
-║                  LINUX • SECURITY • AUTOMATION                      ║
+║   COLLECT  →  ANALYZE  →  CLASSIFY  →  REPORT                       ║
 ║                                                                      ║
 ╚══════════════════════════════════════════════════════════════════════╝
 ```
 
-<br>
-
-🟢━━━━━━━━━━━━━━━━━━━━━━━🟡━━━━━━━━━━━━━━━━━━━━━━━🔴
-**SYSTEM INITIALIZATION**
-🔴━━━━━━━━━━━━━━━━━━━━━━━🟡━━━━━━━━━━━━━━━━━━━━━━━🟢
-
 </div>
 
 ---
 
-# 🧠 SYSTEM CORE
+## 🟦 `01` • SOBRE O PROJETO
+
+O **Linux Security Scanner** é uma ferramenta de **automação de segurança desenvolvida em Python**, criada para coletar informações do ambiente Linux, analisar componentes do sistema e apresentar os resultados em um relatório visual diretamente no terminal.
+
+O projeto foi desenvolvido com foco em uma situação real:
+
+> **automatizar tarefas de coleta e análise que normalmente exigiriam a execução manual de diversos comandos Linux.**
+
+A ferramenta combina **Python + comandos Linux + Nmap + análise de logs**, transformando dados técnicos do sistema em uma visão organizada para análise de segurança.
+
+---
+
+## 🟥 `02` • OBJETIVO
+
+O objetivo do projeto é criar uma base de **Security Automation** capaz de:
 
 ```text
-                         ┌──────────────────────┐
-                         │     SYSTEM CORE      │
-                         │                      │
-                         │   LINUX ENGINEERING  │
-                         │   CYBERSECURITY      │
-                         │   AUTOMATION         │
-                         └──────────┬───────────┘
-                                    │
-                    ┌───────────────┼───────────────┐
-                    │               │               │
-                    ▼               ▼               ▼
-             ┌────────────┐  ┌────────────┐  ┌────────────┐
-             │   LINUX    │  │    SOC     │  │ AUTOMATION │
-             │  SYSTEMS   │  │ SECURITY   │  │   TOOLS    │
-             └─────┬──────┘  └─────┬──────┘  └─────┬──────┘
-                   │               │               │
-                   └───────────────┼───────────────┘
-                                   ▼
-                         ┌──────────────────┐
-                         │   OPERATIONS     │
-                         │   & MONITORING   │
-                         └──────────────────┘
+┌──────────────────────────────────────────────────────────────┐
+│ 🟦 COLLECT                                                   │
+│    Coletar informações do sistema                           │
+├──────────────────────────────────────────────────────────────┤
+│ 🟨 ANALYZE                                                   │
+│    Analisar processos, serviços, rede e portas              │
+├──────────────────────────────────────────────────────────────┤
+│ 🟥 CLASSIFY                                                  │
+│    Classificar eventos e informações de logs                │
+├──────────────────────────────────────────────────────────────┤
+│ 🟩 REPORT                                                    │
+│    Apresentar os resultados de forma organizada             │
+└──────────────────────────────────────────────────────────────┘
 ```
 
 ---
+
+## 🟨 `03` • PRINCIPAIS MÓDULOS
+
+### 🧠 SYSTEM INTELLIGENCE
+
+Coleta informações fundamentais do ambiente:
+
+* Sistema operacional
+* Kernel
+* Host
+* Usuário
+* Arquitetura
+* CPU
+* Número de cores
+* Memória RAM
+* Armazenamento
+* Espaço livre
+* Uptime
+* Load Average
+
+---
+
+### 🌐 NETWORK ANALYSIS
+
+Realiza análise das interfaces de rede disponíveis.
+
+Informações coletadas:
+
+* Interfaces
+* Estado da interface
+* IPv4
+* IPv6
+* Status operacional
+
+Exemplo:
+
+```text
+INTERFACE   STATUS      IPv4
+lo          UNKNOWN     127.0.0.1/8
+eth0        UP          172.22.20.62/20
+```
+
+---
+
+### ⚙️ PROCESS ANALYSIS
+
+Analisa os processos em execução no Linux.
+
+A ferramenta identifica:
+
+* Usuário
+* PID
+* Consumo de CPU
+* Consumo de memória
+* Estado do processo
+* Nome do processo
+
+Também permite destacar processos com maior utilização de CPU.
+
+---
+
+### 🟩 SERVICE ANALYSIS
+
+Analisa os serviços gerenciados pelo `systemd`.
+
+A ferramenta apresenta:
+
+* Total de serviços
+* Serviços em execução
+* Serviços com falha
+* Estado geral dos serviços
+
+Exemplo:
+
+```text
+TOTAL SERVICES       : 31
+RUNNING SERVICES     : 13
+FAILED SERVICES      : 0
+```
+
+---
+
+### 🔎 NMAP PORT SCANNER
+
+Integra o **Nmap diretamente ao Python**.
+
+O scanner realiza:
+
+```text
+TARGET
+   │
+   ▼
+127.0.0.1
+   │
+   ▼
+TCP PORT SCAN
+   │
+   ▼
+SERVICE DETECTION
+   │
+   ▼
+PORT ANALYSIS
+```
+
+Informações analisadas:
+
+* Status do host
+* Portas examinadas
+* Portas abertas
+* Serviços
+* Detecção de versão
+
+---
+
+### 📋 LOG ANALYSIS
+
+Analisa eventos provenientes do `journalctl`.
+
+Em vez de simplesmente contar todos os erros como problemas de segurança, o projeto utiliza **classificação contextual**.
+
+Os eventos são separados em categorias como:
+
+```text
+🔐 SECURITY
+🌐 ENVIRONMENT
+⚙️ SYSTEM
+📋 JOURNAL
+```
+
+Isso permite diferenciar eventos relacionados ao ambiente WSL/Linux de possíveis eventos de segurança.
+
+---
+
+## 🟦 `04` • ARQUITETURA
+
+```text
+                    ┌──────────────────────┐
+                    │   LINUX ENVIRONMENT  │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │       PYTHON         │
+                    │   SECURITY ENGINE    │
+                    └──────────┬───────────┘
+                               │
+          ┌────────────────────┼────────────────────┐
+          │                    │                    │
+          ▼                    ▼                    ▼
+     SYSTEM DATA          NETWORK DATA         LOG DATA
+          │                    │                    │
+          └────────────────────┼────────────────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │       ANALYSIS       │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │    CLASSIFICATION    │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │   TERMINAL REPORT    │
+                    └──────────────────────┘
+```
+
+---
+
+## 🟥 `05` • PIPELINE DE SEGURANÇA
+
+```text
+╔══════════╗
+║ COLLECT  ║
+╚════╤═════╝
+     │
+     ▼
+╔══════════╗
+║ ANALYZE  ║
+╚════╤═════╝
+     │
+     ▼
+╔══════════╗
+║ CLASSIFY ║
+╚════╤═════╝
+     │
+     ▼
+╔══════════╗
+║  REPORT  ║
+╚══════════╝
+```
+
+### 🔵 COLLECT
+
+Coleta informações diretamente do Linux.
+
+### 🟡 ANALYZE
+
+Processa os dados coletados.
+
+### 🔴 CLASSIFY
+
+Organiza eventos e informações por contexto.
+
+### 🟢 REPORT
+
+Exibe os resultados em uma interface de terminal estruturada.
+
+---
+
+## 🟨 `06` • TECNOLOGIAS
 
 <div align="center">
 
-## 🚦 SYSTEM STATUS
-
-🟢 **LINUX**    🟢 **NETWORK**    🟢 **SECURITY**
-🟢 **AUTOMATION**    🟡 **MONITORING**    🟢 **LAB ONLINE**
+| Tecnologia               | Utilização                    |
+| ------------------------ | ----------------------------- |
+| 🐍 **Python**            | Engine de automação           |
+| 🐧 **Linux**             | Ambiente de execução          |
+| 🖥️ **WSL2**             | Ambiente Linux no Windows     |
+| 🔎 **Nmap**              | Análise de portas e serviços  |
+| ⚙️ **systemd**           | Análise de serviços           |
+| 📋 **journalctl**        | Análise de logs               |
+| 🌐 **Linux Networking**  | Informações de rede           |
+| 🧠 **Python Subprocess** | Integração com comandos Linux |
 
 </div>
 
 ---
 
-# ⚙️ PROCESSOR ARCHITECTURE
+## 🟦 `07` • AMBIENTE DE EXECUÇÃO
 
 ```text
-                         ╔══════════════════════╗
-                         ║      CPU CORE       ║
-                         ║                      ║
-                         ║   ████████████████   ║
-                         ║   █  SYSTEM OPS  █   ║
-                         ║   ████████████████   ║
-                         ╚══════════╤═══════════╝
-                                    │
-             ┌──────────────────────┼──────────────────────┐
-             │                      │                      │
-             ▼                      ▼                      ▼
-
-       ┌──────────────┐      ┌──────────────┐      ┌──────────────┐
-       │   PROCESS    │      │   NETWORK    │      │   SECURITY   │
-       │   CONTROL    │      │   ANALYSIS   │      │   MONITORING │
-       └──────┬───────┘      └──────┬───────┘      └──────┬───────┘
-              │                     │                     │
-              ▼                     ▼                     ▼
-       🟢 Processes           🟢 TCP/IP              🟢 Logs
-       🟢 Services            🟢 DNS                  🟢 Events
-       🟢 Signals             🟢 Routing              🟢 Detection
-       🟢 Resources           🟢 Interfaces           🟢 Response
-
-             │                     │                     │
-             └─────────────────────┼─────────────────────┘
-                                   ▼
-                         ╔════════════════════╗
-                         ║  SECURITY ENGINE   ║
-                         ║                    ║
-                         ║  LINUX + SOC +    ║
-                         ║  AUTOMATION        ║
-                         ╚════════════════════╝
-```
-
----
-
-# 🔵 PROJECT OVERVIEW
-
-Este laboratório representa uma **infraestrutura prática de estudos e engenharia de sistemas Linux**, construída para desenvolver conhecimentos aplicáveis a:
-
-```text
-┌─────────────────────────────────────────────────────────────┐
-│                                                             │
-│  🐧 LINUX ADMINISTRATION                                    │
-│                                                             │
-│  🖥️ SYSTEM ENGINEERING                                      │
-│                                                             │
-│  🛡️ CYBERSECURITY                                           │
-│                                                             │
-│  🚨 SOC OPERATIONS                                          │
-│                                                             │
-│  🌐 NETWORKING                                              │
-│                                                             │
-│  ⚙️ AUTOMATION                                              │
-│                                                             │
-│  🔎 TROUBLESHOOTING                                         │
-│                                                             │
-│  📊 MONITORING                                              │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
-```
-
----
-
-# 🔥 SYSTEM PIPELINE
-
-```text
-       ┌──────────┐
-       │   USER   │
-       └────┬─────┘
-            │
-            ▼
-      ╭──────────────╮
-      │   REQUEST    │
-      ╰──────┬───────╯
-             │
-             ▼
-       ┌───────────┐
-       │   LINUX   │
-       │   KERNEL  │
-       └─────┬─────┘
-             │
-     ┌───────┼────────┐
-     │       │        │
-     ▼       ▼        ▼
-  PROCESS  NETWORK   FILESYSTEM
-     │       │        │
-     └───────┼────────┘
-             │
-             ▼
-      ┌──────────────┐
-      │  MONITORING  │
-      └──────┬───────┘
-             │
-             ▼
-       ┌────────────┐
-       │   LOGS     │
-       └─────┬──────┘
-             │
-             ▼
-       ┌────────────┐
-       │   ALERT    │
-       └─────┬──────┘
-             │
-             ▼
-      ┌───────────────┐
-      │ SOC ANALYSIS  │
-      └───────┬───────┘
-              │
-              ▼
-        🟢 RESPONSE
-```
-
----
-
-# 🟢 LINUX ENGINEERING
-
-```text
-                    ┌───────────────────┐
-                    │    LINUX HOST     │
-                    └─────────┬─────────┘
-                              │
-             ┌────────────────┼────────────────┐
-             │                │                │
-             ▼                ▼                ▼
-        ┌─────────┐      ┌─────────┐      ┌─────────┐
-        │PROCESS  │      │ STORAGE │      │ NETWORK │
-        └────┬────┘      └────┬────┘      └────┬────┘
-             │                │                │
-             ▼                ▼                ▼
-        ps / top          df / du          ip / ss
-        systemctl         mount            ping
-        systemd           lsblk            DNS
-        journalctl        filesystem       routing
-```
-
----
-
-# 🛡️ CYBERSECURITY PIPELINE
-
-```text
-             ┌───────────────────────┐
-             │      ENVIRONMENT       │
-             └───────────┬───────────┘
-                         │
-                         ▼
-                  🔎 RECONNAISSANCE
-                         │
-                         ▼
-                  🌐 NETWORK ANALYSIS
-                         │
-                         ▼
-                  🧪 SECURITY TESTS
-                         │
-                         ▼
-                  📜 LOG ANALYSIS
-                         │
-                         ▼
-                  🚨 DETECTION
-                         │
-                         ▼
-                  🛡️ RESPONSE
-                         │
-                         ▼
-                  📊 REPORTING
-```
-
----
-
-# 🚦 SECURITY STATUS BOARD
-
-```text
-╔════════════════════════════════════════════════════════════╗
-║                    SECURITY CONTROL                       ║
-╠════════════════════════════════════════════════════════════╣
-║                                                            ║
-║   🟢 SYSTEM        [ ONLINE ]                              ║
-║                                                            ║
-║   🟢 NETWORK       [ MONITORED ]                           ║
-║                                                            ║
-║   🟡 LOGGING       [ ANALYZING ]                           ║
-║                                                            ║
-║   🟢 SERVICES      [ RUNNING ]                            ║
-║                                                            ║
-║   🟢 AUTOMATION    [ ACTIVE ]                             ║
-║                                                            ║
-║   🔴 INCIDENT      [ 0 ACTIVE ]                           ║
-║                                                            ║
-╚════════════════════════════════════════════════════════════╝
-```
-
----
-
-# ⚡ AUTOMATION ENGINE
-
-```text
-             INPUT
+HOST
+│
+└── Windows
+     │
+     └── WSL2
+          │
+          └── Ubuntu
                │
-               ▼
-       ┌───────────────┐
-       │ SHELL SCRIPT  │
-       └───────┬───────┘
-               │
-               ▼
-       ┌───────────────┐
-       │     PYTHON    │
-       └───────┬───────┘
-               │
-               ▼
-       ┌───────────────┐
-       │ SYSTEM COMMAND │
-       └───────┬───────┘
-               │
-               ▼
-       ┌───────────────┐
-       │   ANALYSIS    │
-       └───────┬───────┘
-               │
-               ▼
-       ┌───────────────┐
-       │    REPORT     │
-       └───────────────┘
-
-     ⚡ AUTOMATE → ANALYZE → DETECT → RESPOND
+               ├── Python 3
+               ├── Nmap
+               ├── systemd
+               ├── journalctl
+               └── Linux Security Scanner
 ```
 
----
-
-# 🔬 LAB MODULES
-
-| Módulo                | Área                             | Status |
-| --------------------- | -------------------------------- | ------ |
-| 🐧 Linux Systems      | Administração Linux              | 🟢     |
-| ⚙️ Process Management | Processos e recursos             | 🟢     |
-| 💾 Storage            | Filesystems e armazenamento      | 🟢     |
-| 🌐 Networking         | TCP/IP, interfaces e diagnóstico | 🟢     |
-| 📜 Logging            | journalctl / logs                | 🟢     |
-| 🔧 systemd            | Serviços e inicialização         | 🟢     |
-| 🛡️ Security          | Hardening e análise              | 🟢     |
-| 🚨 SOC                | Detecção e monitoramento         | 🟡     |
-| 🐍 Python             | Automação                        | 🟢     |
-| 💻 Shell              | Automação Linux                  | 🟢     |
-| 🔎 Troubleshooting    | Diagnóstico                      | 🟢     |
-
----
-
-# 🧩 TECHNOLOGY STACK
+### Ambiente utilizado
 
 ```text
-╔══════════════════════════════════════════════════════════╗
-║                    TECHNOLOGY STACK                     ║
-╠══════════════════════════════════════════════════════════╣
-║                                                          ║
-║  🐧 Linux                                                ║
-║  🐚 Bash                                                 ║
-║  🐍 Python                                               ║
-║  🌐 TCP/IP                                               ║
-║  🔐 Cybersecurity                                        ║
-║  🚨 SOC Operations                                       ║
-║  📊 Monitoring                                           ║
-║  📝 System Logging                                       ║
-║  ⚙️ systemd                                              ║
-║  🐳 Docker                                               ║
-║  🔎 Network Security                                     ║
-║                                                          ║
-╚══════════════════════════════════════════════════════════╝
+Operating System : Ubuntu
+Environment      : WSL2
+Architecture     : x86_64
+Python           : Python 3
+Scanner          : Linux Security Scanner
+Network Tool     : Nmap
 ```
 
 ---
 
-# 🔴 TROUBLESHOOTING FLOW
+## 🟩 `08` • EXECUÇÃO
 
-```text
-                  ┌──────────────┐
-                  │    ALERT     │
-                  └──────┬───────┘
-                         │
-                         ▼
-                  🔎 IDENTIFY
-                         │
-                         ▼
-                  📊 COLLECT
-                         │
-                         ▼
-                  🧠 ANALYZE
-                         │
-                         ▼
-                  🔧 CORRECT
-                         │
-                         ▼
-                  🧪 VALIDATE
-                         │
-                         ▼
-                  📝 DOCUMENT
-                         │
-                         ▼
-                  🟢 RESOLVED
-```
-
----
-
-# 💻 TERMINAL IDENTITY
+Entre no diretório do projeto:
 
 ```bash
-┌──[PAULO@LINUX-SOC]─[~/security-lab]
-└─$ systemctl status security-monitor
+cd "/mnt/c/Users/Henrique/Desktop/Linux Security Scanner"
+```
 
-● security-monitor.service
-   Loaded: loaded
-   Active: active (running)
+Execute:
 
-[🟢] SYSTEM      ONLINE
-[🟢] NETWORK     MONITORED
-[🟢] LOGGING     ACTIVE
-[🟢] SECURITY    ACTIVE
-[🟢] AUTOMATION  ACTIVE
-
-┌──[PAULO@LINUX-SOC]─[~/security-lab]
-└─$ _
+```bash
+python3 security_scanner.py
 ```
 
 ---
 
-# 🧠 ENGINEERING MINDSET
+## 🟥 `09` • EXEMPLO DE RESULTADO
 
 ```text
-        OBSERVE
-           │
-           ▼
-        ANALYZE
-           │
-           ▼
-        UNDERSTAND
-           │
-           ▼
-        AUTOMATE
-           │
-           ▼
-        SECURE
-           │
-           ▼
-        MONITOR
-           │
-           ▼
-        IMPROVE
-           │
-           └───────────────► 🔄
+╔════════════════════════════════════════════════════════════════════════╗
+║ SYSTEM INTELLIGENCE                                                   ║
+╟────────────────────────────────────────────────────────────────────────╢
+║ Sistema       : Linux                                                 ║
+║ Kernel        : 6.18.33.2-microsoft-standard-WSL2                    ║
+║ Host          : DESKTOP-G5MHT19                                       ║
+║ Arquitetura   : x86_64                                                ║
+║ CPU Cores     : 4                                                     ║
+║ RAM           : 462Mi used / 3.8Gi total                              ║
+║ Disk          : 4.4G used / 1006.9G                                  ║
+╚════════════════════════════════════════════════════════════════════════╝
 ```
-
----
-
-# 📡 PROJECT OBJECTIVES
-
-### 🟢 Administração Linux
-
-* Processos e recursos
-* Usuários e permissões
-* Filesystems
-* Serviços
-* systemd
-* Logs
-* Networking
-* Diagnóstico do sistema
-
-### 🔵 Cybersecurity
-
-* Segurança de sistemas Linux
-* Network security
-* Análise de logs
-* Reconhecimento de ambientes
-* Monitoramento
-* Troubleshooting
-* Hardening
-
-### 🔴 SOC Operations
-
-* Eventos de segurança
-* Identificação de anomalias
-* Análise de logs
-* Investigação
-* Monitoramento
-* Resposta operacional
-
-### 🟡 Automação
-
-* Bash
-* Python
-* Scripts administrativos
-* Coleta de informações
-* Relatórios
-* Rotinas automatizadas
-
----
-
-# 🚀 ROADMAP
 
 ```text
-                         PROJECT ROADMAP
-
-             ┌───────────────┐
-             │   LINUX CORE  │
-             └───────┬───────┘
-                     │
-                     ▼
-             ┌───────────────┐
-             │   NETWORKING  │
-             └───────┬───────┘
-                     │
-                     ▼
-             ┌───────────────┐
-             │  MONITORING   │
-             └───────┬───────┘
-                     │
-                     ▼
-             ┌───────────────┐
-             │ CYBERSECURITY │
-             └───────┬───────┘
-                     │
-                     ▼
-             ┌───────────────┐
-             │      SOC      │
-             └───────┬───────┘
-                     │
-                     ▼
-             ┌───────────────┐
-             │  AUTOMATION   │
-             └───────┬───────┘
-                     │
-                     ▼
-             ┌────────────────┐
-             │   ENGINEERING  │
-             └────────────────┘
+╔════════════════════════════════════════════════════════════════════════╗
+║ PORT SCANNER                                                           ║
+╟────────────────────────────────────────────────────────────────────────╢
+║ NMAP ENGINE        [ ONLINE ]                                         ║
+║ HOST STATUS        : UP                                               ║
+║ PORTS SCANNED      : 1000                                             ║
+║ OPEN PORTS         : 0                                                ║
+╟────────────────────────────────────────────────────────────────────────╢
+║ ✔ NO OPEN TCP PORTS DETECTED                                         ║
+╚════════════════════════════════════════════════════════════════════════╝
 ```
+
+---
+
+## 🟨 `10` • STATUS DOS MÓDULOS
+
+```text
+╔══════════════════════════════════════════════════════════════════════╗
+║                         SECURITY MODULES                            ║
+╟──────────────────────────────────────────────────────────────────────╢
+║ ✔ Process Analysis               [ ONLINE ]                         ║
+║ ✔ System Intelligence            [ ONLINE ]                         ║
+║ ✔ Network Analysis               [ ONLINE ]                         ║
+║ ✔ Service Analysis               [ ONLINE ]                         ║
+║ ✔ Port Scanner                   [ ONLINE ]                         ║
+║ ✔ Log Analysis                   [ ONLINE ]                         ║
+║ ○ Firewall Audit                 [ READY ]                          ║
+║ ○ User & Permission Audit        [ READY ]                          ║
+╚══════════════════════════════════════════════════════════════════════╝
+```
+
+### 🚧 Próximas evoluções
+
+```text
+V1  ████████████████████  SYSTEM SCANNER
+V2  ████████████████████  NETWORK & PORTS
+V3  ████████████████████  PROCESS & SERVICES
+V4  ████████████████████  LOG CLASSIFICATION
+V5  ░░░░░░░░░░░░░░░░░░░░  FIREWALL AUDIT
+V6  ░░░░░░░░░░░░░░░░░░░░  USER & PERMISSION AUDIT
+V7  ░░░░░░░░░░░░░░░░░░░░  JSON REPORT
+V8  ░░░░░░░░░░░░░░░░░░░░  SOC INTEGRATION
+```
+
+---
+
+## 🟦 `11` • EVOLUÇÃO FUTURA
+
+O projeto foi estruturado para evoluir de um scanner local para uma ferramenta de **Security Automation** mais completa.
+
+```text
+LINUX SECURITY SCANNER
+          │
+          ▼
+   SECURITY DATA
+          │
+          ▼
+       JSON
+          │
+          ▼
+   SECURITY EVENTS
+          │
+          ▼
+   CYBER FORTRESS SOC
+```
+
+Possíveis evoluções:
+
+* Firewall Audit
+* User & Permission Audit
+* Detecção de configurações suspeitas
+* Relatórios em TXT
+* Relatórios em JSON
+* Histórico de scans
+* Comparação entre scans
+* Alertas
+* Integração com SOC
+* Automação de resposta
+
+---
+
+## 🟥 `12` • OBJETIVO PROFISSIONAL
+
+Este projeto faz parte de uma linha prática de estudos envolvendo:
+
+```text
+🐧 LINUX
+   │
+   ├── System Administration
+   │
+   ├── Networking
+   │
+   ├── Troubleshooting
+   │
+   └── Security
+          │
+          ▼
+🐍 PYTHON
+   │
+   ├── Automation
+   ├── Data Collection
+   ├── Process Execution
+   └── Security Tools
+          │
+          ▼
+🔐 CYBERSECURITY
+   │
+   ├── Reconnaissance
+   ├── Analysis
+   ├── Classification
+   └── Security Operations
+```
+
+---
+
+## 🟨 `13` • DESENVOLVEDOR
+
+<div align="center">
+
+# 🟦 PAULO HENRIQUE SANTANA MOTTA
+
+### 🐧 Linux • 🐍 Python • 🔐 Cybersecurity • ⚙️ Automation
+
+**Security Automation • Linux Systems • Cybersecurity Labs**
+
+</div>
 
 ---
 
 <div align="center">
 
-# ⚡ PAULO HENRIQUE SANTANA MOTTA ⚡
-
-### `Administrador Linux`
-
-### `Analista de Sistemas`
-
-### `SOC Analyst`
-
-### `Cybersecurity`
-
-### `Automação`
-
-<br>
-
-🟢━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━🟢
-
-### 🐧 LINUX • 🛡️ SECURITY • 🚨 SOC • ⚙️ AUTOMATION
-
-🟢━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━🟢
-
 ```text
-SYSTEM STATUS: OPERATIONAL
-SECURITY STATUS: MONITORED
-AUTOMATION STATUS: ACTIVE
+╔══════════════════════════════════════════════════════════════════════╗
+║                                                                      ║
+║                  LINUX SECURITY SCANNER                             ║
+║                                                                      ║
+║              SECURITY ANALYSIS ENGINE                               ║
+║                                                                      ║
+║                    [ V1.0 ONLINE ]                                  ║
+║                                                                      ║
+╚══════════════════════════════════════════════════════════════════════╝
 ```
 
-<br>
+### 🟢 `COLLECT` → 🟡 `ANALYZE` → 🔴 `CLASSIFY` → 🔵 `REPORT`
 
-**BUILD • ANALYZE • AUTOMATE • SECURE**
+**Built with Python • Linux • Automation • Security**
 
 </div>
