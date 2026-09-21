@@ -3,6 +3,11 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 import math, random, textwrap
 
+
+from pathlib import Path
+from PIL import Image, ImageDraw, ImageFont
+import math, random, textwrap
+
 base = Path("/mnt/data/linux-cybersecurity-systems-lab")
 assets = base / "assets"
 assets.mkdir(parents=True, exist_ok=True)
@@ -37,58 +42,6 @@ readme = r'''<div align="center">
 ║   [ONLINE] LINUX      [MONITORED] NETWORK      [ACTIVE] SECURITY    ║
 ║   [ACTIVE] AUTOMATION [ANALYZING] LOGGING      [READY] RESPONSE     ║
 ╚══════════════════════════════════════════════════════════════════════╝
-
-
-
-<img width="1200" height="210" alt="scan-status" src="https://github.com/user-attachments/assets/f2b23d93-6c32-45e3-8711-0f5d9f29ce23" />
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="210" viewBox="0 0 1200 210">
-<rect width="1200" height="210" rx="18" fill="#05080d"/>
-<text x="600" y="58" text-anchor="middle" font-family="monospace" font-size="28" font-weight="700" fill="#e5e7eb">SCAN ENGINE STATUS</text>
-<text x="600" y="98" text-anchor="middle" font-family="monospace" font-size="18">
-<tspan fill="#22c55e">● SYSTEM </tspan><tspan fill="#94a3b8">•</tspan><tspan fill="#38bdf8"> NETWORK </tspan><tspan fill="#94a3b8">•</tspan><tspan fill="#facc15"> ANALYSIS </tspan><tspan fill="#94a3b8">•</tspan><tspan fill="#ef4444"> SECURITY</tspan>
-</text>
-<text x="600" y="140" text-anchor="middle" font-family="monospace" font-size="20" fill="#22c55e">[ ONLINE ]</text>
-<text x="600" y="178" text-anchor="middle" font-family="monospace" font-size="15" fill="#94a3b8">COLLECT → ANALYZE → CLASSIFY → REPORT</text>
-<circle cx="80" cy="52" r="6" fill="#22c55e"><animate attributeName="r" values="5;9;5" dur="1.4s" repeatCount="indefinite"/></circle>
-<circle cx="1120" cy="52" r="6" fill="#ef4444"><animate attributeName="r" values="9;5;9" dur="1.4s" repeatCount="indefinite"/></circle>
-</svg>
-<img width="1200" height="190" alt="security-module" src="https://github.com/user-attachments/assets/82150e5e-8396-4140-975e-319768f11e7b" />
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="190" viewBox="0 0 1200 190">
-<rect width="1200" height="190" rx="18" fill="#05080d"/>
-<rect x="16" y="16" width="1168" height="158" rx="14" fill="none" stroke="#1f2937" stroke-width="2"/>
-<text x="600" y="72" text-anchor="middle" font-family="monospace" font-size="34" font-weight="700">
-<tspan fill="#38bdf8">SECURITY</tspan><tspan fill="#e5e7eb"> MODULE </tspan><tspan fill="#facc15">ONLINE</tspan>
-</text>
-<text x="600" y="118" text-anchor="middle" font-family="monospace" font-size="18" fill="#94a3b8">SYSTEM  •  NETWORK  •  PROCESS  •  SERVICE  •  NMAP  •  LOGS</text>
-<text x="600" y="150" text-anchor="middle" font-family="monospace" font-size="14" fill="#22c55e">[ INITIALIZING ]  →  [ ANALYZING ]  →  [ COMPLETE ]</text>
-<rect x="60" y="164" width="1080" height="2" fill="#111827"/>
-<rect x="60" y="164" width="0" height="2" fill="#ef4444">
-<animate attributeName="width" values="0;1080;0" dur="3.5s" repeatCount="indefinite"/>
-</rect>
-</svg>
-<img width="1200" height="360" alt="hero" src="https://github.com/user-attachments/assets/9bfecce6-21d0-4fd5-8d89-8056ad648359" /><svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360">
-<rect width="1200" height="360" rx="22" fill="#05080d"/>
-<rect x="18" y="18" width="1164" height="324" rx="16" fill="none" stroke="#1f2937" stroke-width="2"/>
-<text x="600" y="70" text-anchor="middle" font-family="monospace" font-size="20" fill="#22d3ee">SECURITY ANALYSIS &amp; AUTOMATION</text>
-<text x="600" y="145" text-anchor="middle" font-family="monospace" font-size="52" font-weight="700">
-<tspan fill="#38bdf8">LINUX </tspan><tspan fill="#ef4444">SECURITY </tspan><tspan fill="#facc15">SCANNER</tspan>
-</text>
-<text x="600" y="205" text-anchor="middle" font-family="monospace" font-size="21" fill="#e5e7eb">PYTHON  •  LINUX  •  NETWORK  •  SECURITY</text>
-<text x="600" y="270" text-anchor="middle" font-family="monospace" font-size="24" font-weight="700">
-<tspan fill="#22c55e">COLLECT</tspan><tspan fill="#94a3b8"> → </tspan><tspan fill="#facc15">ANALYZE</tspan><tspan fill="#94a3b8"> → </tspan><tspan fill="#ef4444">CLASSIFY</tspan><tspan fill="#94a3b8"> → </tspan><tspan fill="#38bdf8">REPORT</tspan>
-</text>
-<text x="600" y="315" text-anchor="middle" font-family="monospace" font-size="16" fill="#94a3b8">PAULO HENRIQUE SANTANA MOTTA</text>
-<g>
-<circle cx="75" cy="75" r="5" fill="#22c55e"><animate attributeName="opacity" values="1;.15;1" dur="1.2s" repeatCount="indefinite"/></circle>
-<circle cx="95" cy="75" r="5" fill="#facc15"><animate attributeName="opacity" values=".15;1;.15" dur="1.2s" repeatCount="indefinite"/></circle>
-<circle cx="115" cy="75" r="5" fill="#ef4444"><animate attributeName="opacity" values=".15;1;.15" begin=".6s" dur="1.2s" repeatCount="indefinite"/></circle>
-</g>
-<rect x="52" y="292" width="1096" height="2" fill="#111827"/>
-<rect x="52" y="292" width="0" height="2" fill="#22d3ee">
-  <animate attributeName="width" values="0;1096;0" dur="4s" repeatCount="indefinite"/>
-</rect>
-</svg>
-
 
 
 <img width="1200" height="190" alt="security-module (1)" src="https://github.com/user-attachments/assets/015a710b-a1a2-4980-acf1-85806e0dd481" />
