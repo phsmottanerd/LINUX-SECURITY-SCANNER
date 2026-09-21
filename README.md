@@ -2,38 +2,8 @@
                  
                  
                  
-                 
-                 
-
-
-out = Path("/mnt/data/linux-security-scanner-github")
-out.mkdir(exist_ok=True)
-
-# Animated SVGs using native SVG SMIL/CSS, which GitHub can render as images.
-hero = '''<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360">
-<rect width="1200" height="360" rx="22" fill="#05080d"/>
-<rect x="18" y="18" width="1164" height="324" rx="16" fill="none" stroke="#1f2937" stroke-width="2"/>
-<text x="600" y="70" text-anchor="middle" font-family="monospace" font-size="20" fill="#22d3ee">SECURITY ANALYSIS &amp; AUTOMATION</text>
-<text x="600" y="145" text-anchor="middle" font-family="monospace" font-size="52" font-weight="700">
-<tspan fill="#38bdf8">LINUX </tspan><tspan fill="#ef4444">SECURITY </tspan><tspan fill="#facc15">SCANNER</tspan>
-</text>
-<text x="600" y="205" text-anchor="middle" font-family="monospace" font-size="21" fill="#e5e7eb">PYTHON  •  LINUX  •  NETWORK  •  SECURITY</text>
-<text x="600" y="270" text-anchor="middle" font-family="monospace" font-size="24" font-weight="700">
-<tspan fill="#22c55e">COLLECT</tspan><tspan fill="#94a3b8"> → </tspan><tspan fill="#facc15">ANALYZE</tspan><tspan fill="#94a3b8"> → </tspan><tspan fill="#ef4444">CLASSIFY</tspan><tspan fill="#94a3b8"> → </tspan><tspan fill="#38bdf8">REPORT</tspan>
-</text>
-<text x="600" y="315" text-anchor="middle" font-family="monospace" font-size="16" fill="#94a3b8">PAULO HENRIQUE SANTANA MOTTA</text>
-<g>
-<circle cx="75" cy="75" r="5" fill="#22c55e"><animate attributeName="opacity" values="1;.15;1" dur="1.2s" repeatCount="indefinite"/></circle>
-<circle cx="95" cy="75" r="5" fill="#facc15"><animate attributeName="opacity" values=".15;1;.15" dur="1.2s" repeatCount="indefinite"/></circle>
-<circle cx="115" cy="75" r="5" fill="#ef4444"><animate attributeName="opacity" values=".15;1;.15" begin=".6s" dur="1.2s" repeatCount="indefinite"/></circle>
-</g>
-<rect x="52" y="292" width="1096" height="2" fill="#111827"/>
-<rect x="52" y="292" width="0" height="2" fill="#22d3ee">
-  <animate attributeName="width" values="0;1096;0" dur="4s" repeatCount="indefinite"/>
-</rect>
-</svg>'''
-
-section = '''<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="190" viewBox="0 0 1200 190">
+            
+<img width="1200" height="190" alt="security-module (1)" src="https://github.com/user-attachments/assets/0921dc88-1970-4c3f-830f-93187cc4680f" /><svg xmlns="http://www.w3.org/2000/svg" width="1200" height="190" viewBox="0 0 1200 190">
 <rect width="1200" height="190" rx="18" fill="#05080d"/>
 <rect x="16" y="16" width="1168" height="158" rx="14" fill="none" stroke="#1f2937" stroke-width="2"/>
 <text x="600" y="72" text-anchor="middle" font-family="monospace" font-size="34" font-weight="700">
@@ -45,9 +15,10 @@ section = '''<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="190" v
 <rect x="60" y="164" width="0" height="2" fill="#ef4444">
 <animate attributeName="width" values="0;1080;0" dur="3.5s" repeatCount="indefinite"/>
 </rect>
-</svg>'''
+</svg>
 
-status = '''<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="210" viewBox="0 0 1200 210">
+
+<img width="1200" height="210" alt="scan-status" src="https://github.com/user-attachments/assets/ca0a7677-7f69-461a-932a-2c07c75f352d" /><svg xmlns="http://www.w3.org/2000/svg" width="1200" height="210" viewBox="0 0 1200 210">
 <rect width="1200" height="210" rx="18" fill="#05080d"/>
 <text x="600" y="58" text-anchor="middle" font-family="monospace" font-size="28" font-weight="700" fill="#e5e7eb">SCAN ENGINE STATUS</text>
 <text x="600" y="98" text-anchor="middle" font-family="monospace" font-size="18">
@@ -57,33 +28,10 @@ status = '''<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="210" vi
 <text x="600" y="178" text-anchor="middle" font-family="monospace" font-size="15" fill="#94a3b8">COLLECT → ANALYZE → CLASSIFY → REPORT</text>
 <circle cx="80" cy="52" r="6" fill="#22c55e"><animate attributeName="r" values="5;9;5" dur="1.4s" repeatCount="indefinite"/></circle>
 <circle cx="1120" cy="52" r="6" fill="#ef4444"><animate attributeName="r" values="9;5;9" dur="1.4s" repeatCount="indefinite"/></circle>
-</svg>'''
+</svg>
 
-(out/"hero.svg").write_text(hero, encoding="utf-8")
-(out/"security-module.svg").write_text(section, encoding="utf-8")
-(out/"scan-status.svg").write_text(status, encoding="utf-8")
 
-readme = r'''<div align="center">
 
-<img src="./hero.svg" alt="Linux Security Scanner">
-
-<br>
-
-<img src="./security-module.svg" alt="Security modules">
-
-</div>
-
-# 🟦 `LINUX SECURITY SCANNER`
-
-<div align="center">
-
-### 🐍 Python &nbsp;•&nbsp; 🐧 Linux &nbsp;•&nbsp; 🌐 Network &nbsp;•&nbsp; 🔐 Security Automation
-
-**Desenvolvido por Paulo Henrique Santana Motta**
-
-</div>
-
----
 
 ## 🔵 `01` • SOBRE O PROJETO
 
@@ -141,6 +89,23 @@ A ferramenta combina **Python + comandos Linux + Nmap + análise de logs**, tran
 
 ---
 
+
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="190" viewBox="0 0 1200 190">
+<rect width="1200" height="190" rx="18" fill="#05080d"/>
+<rect x="16" y="16" width="1168" height="158" rx="14" fill="none" stroke="#1f2937" stroke-width="2"/>
+<text x="600" y="72" text-anchor="middle" font-family="monospace" font-size="34" font-weight="700">
+<tspan fill="#38bdf8">SECURITY</tspan><tspan fill="#e5e7eb"> MODULE </tspan><tspan fill="#facc15">ONLINE</tspan>
+</text>
+<text x="600" y="118" text-anchor="middle" font-family="monospace" font-size="18" fill="#94a3b8">SYSTEM  •  NETWORK  •  PROCESS  •  SERVICE  •  NMAP  •  LOGS</text>
+<text x="600" y="150" text-anchor="middle" font-family="monospace" font-size="14" fill="#22c55e">[ INITIALIZING ]  →  [ ANALYZING ]  →  [ COMPLETE ]</text>
+<rect x="60" y="164" width="1080" height="2" fill="#111827"/>
+<rect x="60" y="164" width="0" height="2" fill="#ef4444">
+<animate attributeName="width" values="0;1080;0" dur="3.5s" repeatCount="indefinite"/>
+</rect>
+</svg>
+
+
+<img width="1200" height="190" alt="security-module" src="https://github.com/user-attachments/assets/80a2dc99-b13b-4356-8b48-5604f8a358b0" />
 ## 🟥 `02` • OBJETIVO
 
 O objetivo do projeto é criar uma base de **Security Automation** capaz de:
@@ -295,6 +260,33 @@ Isso permite diferenciar eventos relacionados ao ambiente WSL/Linux de possívei
 
 ---
 
+
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360">
+<rect width="1200" height="360" rx="22" fill="#05080d"/>
+<rect x="18" y="18" width="1164" height="324" rx="16" fill="none" stroke="#1f2937" stroke-width="2"/>
+<text x="600" y="70" text-anchor="middle" font-family="monospace" font-size="20" fill="#22d3ee">SECURITY ANALYSIS &amp; AUTOMATION</text>
+<text x="600" y="145" text-anchor="middle" font-family="monospace" font-size="52" font-weight="700">
+<tspan fill="#38bdf8">LINUX </tspan><tspan fill="#ef4444">SECURITY </tspan><tspan fill="#facc15">SCANNER</tspan>
+</text>
+<text x="600" y="205" text-anchor="middle" font-family="monospace" font-size="21" fill="#e5e7eb">PYTHON  •  LINUX  •  NETWORK  •  SECURITY</text>
+<text x="600" y="270" text-anchor="middle" font-family="monospace" font-size="24" font-weight="700">
+<tspan fill="#22c55e">COLLECT</tspan><tspan fill="#94a3b8"> → </tspan><tspan fill="#facc15">ANALYZE</tspan><tspan fill="#94a3b8"> → </tspan><tspan fill="#ef4444">CLASSIFY</tspan><tspan fill="#94a3b8"> → </tspan><tspan fill="#38bdf8">REPORT</tspan>
+</text>
+<text x="600" y="315" text-anchor="middle" font-family="monospace" font-size="16" fill="#94a3b8">PAULO HENRIQUE SANTANA MOTTA</text>
+<g>
+<circle cx="75" cy="75" r="5" fill="#22c55e"><animate attributeName="opacity" values="1;.15;1" dur="1.2s" repeatCount="indefinite"/></circle>
+<circle cx="95" cy="75" r="5" fill="#facc15"><animate attributeName="opacity" values=".15;1;.15" dur="1.2s" repeatCount="indefinite"/></circle>
+<circle cx="115" cy="75" r="5" fill="#ef4444"><animate attributeName="opacity" values=".15;1;.15" begin=".6s" dur="1.2s" repeatCount="indefinite"/></circle>
+</g>
+<rect x="52" y="292" width="1096" height="2" fill="#111827"/>
+<rect x="52" y="292" width="0" height="2" fill="#22d3ee">
+  <animate attributeName="width" values="0;1096;0" dur="4s" repeatCount="indefinite"/>
+</rect>
+</svg>
+
+
+
+<img width="1200" height="360" alt="hero" src="https://github.com/user-attachments/assets/b4272f10-2b2d-4ab6-8746-a1f02202b6b3" />
 ## 🟦 `04` • ARQUITETURA
 
 ```text
