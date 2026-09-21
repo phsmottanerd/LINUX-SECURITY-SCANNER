@@ -1,5 +1,42 @@
 
+from pathlib import Path
+from PIL import Image, ImageDraw, ImageFont
+import math, random, textwrap
 
+base = Path("/mnt/data/linux-cybersecurity-systems-lab")
+assets = base / "assets"
+assets.mkdir(parents=True, exist_ok=True)
+
+readme = r'''<div align="center">
+
+<img src="assets/linux-cybersecurity-banner.svg" alt="Linux Cybersecurity Systems Lab" width="100%">
+
+# 🐧 Linux Cybersecurity Systems Lab
+
+### `Administrador Linux` · `Analista de Sistemas` · `SOC Analyst` · `Cybersecurity` · `Automação`
+
+[![Linux](https://img.shields.io/badge/Linux-Engineering-111827?style=for-the-badge&logo=linux&logoColor=white)](#)
+[![Cybersecurity](https://img.shields.io/badge/Cybersecurity-Operations-111827?style=for-the-badge&logo=protonvpn&logoColor=white)](#)
+[![SOC](https://img.shields.io/badge/SOC-Analyst-111827?style=for-the-badge&logo=securityscorecard&logoColor=white)](#)
+[![Python](https://img.shields.io/badge/Python-Automation-111827?style=for-the-badge&logo=python&logoColor=white)](#)
+[![Bash](https://img.shields.io/badge/Bash-Scripting-111827?style=for-the-badge&logo=gnubash&logoColor=white)](#)
+
+</div>
+
+---
+
+## ⚡ SYSTEM INITIALIZATION
+
+```text
+╔══════════════════════════════════════════════════════════════════════╗
+║                 PAULO HENRIQUE SANTANA MOTTA                        ║
+║                                                                      ║
+║   ADMINISTRADOR LINUX  •  ANALISTA DE SISTEMAS  •  SOC ANALYST      ║
+║   CYBERSECURITY  •  AUTOMATION  •  LINUX SYSTEMS ENGINEERING         ║
+║                                                                      ║
+║   [ONLINE] LINUX      [MONITORED] NETWORK      [ACTIVE] SECURITY    ║
+║   [ACTIVE] AUTOMATION [ANALYZING] LOGGING      [READY] RESPONSE     ║
+╚══════════════════════════════════════════════════════════════════════╝
 
 
 
